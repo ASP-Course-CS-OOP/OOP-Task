@@ -105,6 +105,7 @@
 
                     Console.WriteLine("=========================================================");
                     Console.WriteLine($"The Borrowing Duration Of This {borrowedBook.BookDetails.Title} Book is {borrowDuration} Day!");
+
                     borrowedBook.ReturnItem();
 
                     Console.WriteLine("=========================================================");
