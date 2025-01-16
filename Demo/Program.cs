@@ -24,17 +24,43 @@
                 } while (!idParsed);
 
                 Console.WriteLine("\nEnter Book Detail => ");
-                Console.Write("Title : ");
-                string title = Console.ReadLine()!;
 
-                Console.Write("Author : ");
-                string author = Console.ReadLine()!;
+                bool titleIsNullOrWhiteSpace;
+                string title;
+                do
+                {
+                    Console.Write("Title : ");
+                    title = Console.ReadLine()!;
+                    titleIsNullOrWhiteSpace = string.IsNullOrWhiteSpace(title);
+                } while (titleIsNullOrWhiteSpace);
 
-                Console.Write("ISBN : ");
-                string isbn = Console.ReadLine()!;
+                bool authorIsNullOrWhiteSpace;
+                string author;
+                do
+                {
+                    Console.Write("Author : ");
+                    author = Console.ReadLine()!;
+                    authorIsNullOrWhiteSpace = string.IsNullOrWhiteSpace(author);
+                } while (authorIsNullOrWhiteSpace);
 
-                Console.Write("\nEnter Your Name : ");
-                string name = Console.ReadLine()!;
+                bool isbnIsNullOrWhiteSpace;
+                string isbn;
+                do
+                {
+                    Console.Write("ISBN : ");
+                    isbn = Console.ReadLine()!;
+                    isbnIsNullOrWhiteSpace = string.IsNullOrWhiteSpace(isbn);
+                } while (isbnIsNullOrWhiteSpace);
+
+
+                bool nameIsNullOrwhiteSpace;
+                string name;
+                do
+                {
+                    Console.Write("\nEnter Your Name : ");
+                    name = Console.ReadLine()!;
+                    nameIsNullOrwhiteSpace = string.IsNullOrWhiteSpace(name);
+                } while (nameIsNullOrwhiteSpace);
 
                 int day, month, year;
                 bool BorrowDayParsed, BorrowMonthParsed, BorrowYearParsed;
@@ -50,13 +76,13 @@
                 {
                     Console.Write("Month: ");
                     BorrowMonthParsed = int.TryParse(Console.ReadLine(), out month);
-                } while (!BorrowMonthParsed || month>12 || month<0);
+                } while (!BorrowMonthParsed || month > 12 || month < 0);
 
                 do
                 {
                     Console.Write("Year: ");
                     BorrowYearParsed = int.TryParse(Console.ReadLine(), out year);
-                } while (!BorrowYearParsed || year>2025);
+                } while (!BorrowYearParsed || year > 2025);
 
                 DateTime borrowedDate = new DateTime(year, month, day);
                 Book book = new Book(title, author, isbn);
