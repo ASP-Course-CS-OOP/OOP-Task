@@ -32,7 +32,6 @@ namespace Demo
 
         public int CalculateBorrowDuration(DateTime returnDate)
         {
-            IsAvailable = true;
             return returnDate.Day - BorrowedDate.Day;
         }
 
